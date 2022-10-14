@@ -2,7 +2,7 @@ import React from 'react'
 import "./menu.css"
 import { NavLink} from 'react-router-dom'
 
-const activeClass = (params) => {  return params.isActive ? "active-item" : ""}
+const activeClass = (params) => {return params.isActive ? "active-item" : ""}
 
 export const Menu = () => {
  return (
