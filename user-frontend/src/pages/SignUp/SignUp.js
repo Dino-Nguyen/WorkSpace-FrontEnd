@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import classes from './SignUp.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
