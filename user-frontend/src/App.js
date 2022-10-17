@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import { useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
+import { Navigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
-import { HeaderBar } from './Components/HeaderBar/headerbar';
-import { Menu } from './Components/Menu/menu';
+import { HeaderBar } from './components/HeaderBar/headerbar';
+import { Menu } from './components/Menu/menu';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import DashBoard from './pages/DashBoard/dashboard';
@@ -14,7 +15,6 @@ import Settings from './pages/Settings/settings';
 import Message from './pages/Message/message';
 import Files from './pages/Files/files';
 import NotFound from './pages/NotFound/NotFound';
-import { Navigate } from 'react-router-dom';
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);

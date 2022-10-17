@@ -11,7 +11,7 @@ export const Menu = () => {
     <div className="menu">
       Menu
       <div className="nav">
-        <NavLink to="/" className={activeClass}>
+        <NavLink to="/dashboard" className={activeClass}>
           DashBoard
         </NavLink>
       </div>

@@ -9,7 +9,7 @@ export const signIn = (payload, navigate, toast) => {
         const response = await axios.post('sign-in', payload);
         return response.data;
       } catch (error) {
-        toast.error(error.response.data.message, { theme: 'dark' });
+        toast.error(error.response.data.message, { theme: 'colored' });
         throw new Error(error.response.data.message);
       }
     };
@@ -21,7 +21,7 @@ export const signIn = (payload, navigate, toast) => {
       localStorage.setItem('user', JSON.stringify(user));
       dispatch(authActions.signIn(user));
       setBearerToken(user.token);
-      toast.success(message, { theme: 'dark' });
+      toast.success(message, { theme: 'colored' });
       if (message) navigate('/dashboard');
     } catch (error) {
       console.log(error);
@@ -37,29 +37,19 @@ export const signOut = (navigate, toast) => {
     localStorage.removeItem('user');
     dispatch(authActions.signOut());
     navigate('/');
-    toast.success('Successfully sign out.', { theme: 'dark' });
+    toast.success('Successfully sign out.', { theme: 'colored' });
   };
 };
 
-export const signUp = async (
-  { username, email, password, repeatPassword, fullName },
-  dispatch,
-) => {
-  if (password !== repeatPassword) {
-    alert('Password do not match!');
-  } else {
-    try {
-      const res = await axios.post('/sign-up', {
-        username,
-        email,
-        password,
-        repeatPassword,
-        fullName,
-      });
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-      throw new Error(error);
-    }
+export const signUp = async (payload, navigate, toast) => {
+  try {
+    console.log('payload: ', payload);
+    const res = await axios.post('/sign-up', payload);
+    const { message } = res.data;
+    toast.success(message, { theme: 'colored' });
+    if (message) navigate('/sign-in');
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data.message, { theme: 'colored' });
   }
 };
