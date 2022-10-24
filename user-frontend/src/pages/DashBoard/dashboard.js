@@ -18,13 +18,25 @@ export default function DashBoard() {
                <div className='taskDashboard'>
                  
                    <div className='taskInfo'>
-                     task comp
+                    
+                       <div className='taskCompleted'>
+                       task completed
+                       </div>
+                       <div className='taskCompleted'>
+                         new task
+                       </div>
+                       <div className='taskCompleted'>
+                          project done
+                       </div>
                    </div>
                    <div className='taskGraph'>
                        graph
                    </div>
                    <div className='taskPercent'>
                       task %
+                      <div className='reminder'>
+                          reminder 1
+                      </div>
                    </div>
                </div>
                <div className='messageBox'>

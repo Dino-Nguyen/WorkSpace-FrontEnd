@@ -14,6 +14,8 @@
     border: 1px solid black;
     height: 30vh;
     margin:10px 0;
+    display: flex;
+    justify-content: space-around;
 }
 .taskGraph {
     border: 1px solid black;
@@ -23,6 +25,9 @@
     border: 1px solid black;
     height: 14vh;
     margin:10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .messageBox{
     border: 1px solid black;
@@ -47,4 +52,15 @@
     width: 18vw;
     height: 14vh;
     margin:10px 0;
+}
+.taskCompleted{
+    border: 1px solid black;
+    width: 40vh;
+    
+}
+.reminder {
+    border: 1px solid black;
+    height: 5vh;
+    width: 90%;
+    margin:  10px 0px ;
 }
