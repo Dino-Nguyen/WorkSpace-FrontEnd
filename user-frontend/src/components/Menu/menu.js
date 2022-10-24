@@ -9,7 +9,7 @@ const activeClass = (params) => {
 export const Menu = () => {
   return (
     <div className="menu">
-      Menu
+     
       <div className="nav">
         <NavLink to="/dashboard" className={activeClass}>
           DashBoard

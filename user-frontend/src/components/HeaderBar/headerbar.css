@@ -1,0 +1,20 @@
+.headerbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    height: 8vh;
+    align-items: center;
+    border: 1px solid rgb(244, 22, 22);
+}
+.searchBox {
+    width: 95%;
+    
+}
+.search {
+    border: 1px solid rgb(233, 233, 233);
+    background-color: rgb(240, 240, 240);
+    padding: 10px 20px;
+}
+.btnSignOut {
+   
+}

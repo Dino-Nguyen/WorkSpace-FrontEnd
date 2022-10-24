@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import "./dashboard.css"
 
 export default function DashBoard() {
   const navigate = useNavigate();
@@ -13,5 +14,31 @@ export default function DashBoard() {
     }
   }, [isAuthenticated, navigate]);
 
-  return <div>dashboard</div>;
+  return <div className='dashboard'>
+               <div className='taskDashboard'>
+                 
+                   <div className='taskInfo'>
+                     task comp
+                   </div>
+                   <div className='taskGraph'>
+                       graph
+                   </div>
+                   <div className='taskPercent'>
+                      task %
+                   </div>
+               </div>
+               <div className='messageBox'>
+               
+                    <div className='scheudle'>
+                        scheudle
+                    </div>
+                    <div className='messageMiniBox'>
+                       Mess minibox
+                    </div>
+                    <div className='newTask'>
+                         New task
+                    </div>
+               </div>
+
+  </div>;
 }

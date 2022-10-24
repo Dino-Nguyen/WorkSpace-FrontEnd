@@ -1,0 +1,50 @@
+.dashboard {
+
+  display: flex;
+  flex-direction: row;
+  
+  width: 100%;
+  margin-left: 5%;
+}
+.taskDashboard {
+    width: 75%;
+  background-color: rgba(200, 214, 255, 0.457);
+}
+.taskInfo {
+    border: 1px solid black;
+    height: 30vh;
+    margin:10px 0;
+}
+.taskGraph {
+    border: 1px solid black;
+    height: 40vh;
+}
+.taskPercent {
+    border: 1px solid black;
+    height: 14vh;
+    margin:10px 0;
+}
+.messageBox{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+.scheudle {
+    border: 1px solid black;
+    width: 18vw;
+    height: 30vh;
+    margin:10px 0;
+}
+.messageMiniBox{
+    border: 1px solid black;
+    width: 18vw;
+    height: 40vh;
+}
+.newTask {
+    border: 1px solid black;
+    width: 18vw;
+    height: 14vh;
+    margin:10px 0;
+}

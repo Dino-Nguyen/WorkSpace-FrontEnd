@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from '../../store/actions/auth';
 import { toast } from 'react-toastify';
+import './headerbar.css'
 
 export const HeaderBar = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,11 @@ export const HeaderBar = () => {
   };
 
   return (
-    <div>
-      <div>
-        <input placeholder="search..." />
+    <div className='headerbar'>
+      <div className='searchBox'>
+        <input className='search' placeholder="Search..." />
       </div>
-      <div>
+      <div className='btnSignOut'>
         <button type="button" onClick={signOutHandler}>
           Sign out
         </button>
