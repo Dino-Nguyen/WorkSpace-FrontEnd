@@ -10,51 +10,44 @@ export default class ChatContent extends Component {
     {
       key: 1,
       image:
-        "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
+        "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
       type: "",
-      msg: "Hi Tim, How are you?",
+      msg: "Hi How are you?",
     },
     {
       key: 2,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
+        "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
       type: "other",
-      msg: "I am fine.",
+      msg: "hello I am fine.",
     },
     {
-      key: 3,
+      key: 2,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
-      type: "other",
-      msg: "What about you?",
-    },
-    {
-      key: 4,
-      image:
-        "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
+        "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
       type: "",
-      msg: "Awesome these days.",
+      msg: "Nice to mmet you",
     },
     {
-      key: 5,
+      key: 2,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
+        "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
       type: "other",
-      msg: "Finally. What's the plan?",
+      msg: "Nice to meet you too",
     },
     {
-      key: 6,
+      key: 2,
       image:
-        "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
+        "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
       type: "",
-      msg: "what plan mate?",
+      msg: "I want to talk to you about our next project",
     },
     {
-      key: 7,
+      key: 2,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
+        "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
       type: "other",
-      msg: "I'm taliking about the tutorial",
+      msg: "yes ",
     },
   ];
 
@@ -79,7 +72,7 @@ export default class ChatContent extends Component {
             type: "",
             msg: this.state.msg,
             image:
-              "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
+              "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
           });
           this.setState({ chat: [...this.chatItms] });
           this.scrollToBottom();
@@ -101,9 +94,9 @@ export default class ChatContent extends Component {
             <div className="current-chatting-user">
               <Avatar
                 isOnline="active"
-                image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU"
+                image="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"
               />
-              <p>Tim Hover</p>
+              <p>insert name</p>
             </div>
           </div>
 
@@ -134,7 +127,7 @@ export default class ChatContent extends Component {
         <div className="content__footer">
           <div className="sendNewMessage">
             <button className="addFiles">
-              <i className="fa fa-plus"></i>
+              <i className="fa fa-microphone"></i>
             </button>
             <input
               type="text"
@@ -144,6 +137,12 @@ export default class ChatContent extends Component {
             />
             <button className="btnSendMsg" id="sendMsgBtn">
               <i className="fa fa-paper-plane"></i>
+            </button>
+            <button className="btnSendMsg" id="sendMsgBtn">
+              <i className="fa fa-image"></i>
+            </button>
+            <button className="btnSendMsg" id="sendMsgBtn">
+              <i className="fa fa-smile-o"></i>
             </button>
           </div>
         </div>

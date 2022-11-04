@@ -13,7 +13,7 @@
     height: 100%;
   }
   .mainMessagePage {
-    max-width: 90%;
+    max-width: 100%;
     margin: auto;
     background-color: #fff;
     min-height: 80vh;

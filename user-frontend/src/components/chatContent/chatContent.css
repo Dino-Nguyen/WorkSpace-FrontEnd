@@ -121,7 +121,6 @@
   outline: none;
   cursor: pointer;
   font-size: 16px;
-  color: #4665ff;
   padding: 0;
   border-radius: 5px;
   line-height: 36px;
@@ -139,8 +138,4 @@
   background-color: transparent;
   border: none;
   outline: none;
-}
-#sendMsgBtn {
-  background-color: #3b5bfe;
-  color: #fff;
 }
