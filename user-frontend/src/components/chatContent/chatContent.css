@@ -27,7 +27,7 @@
 }
 .content__body {
   /* max-height: calc(100vh - calc(100vh / 2)); */
-  max-height: calc(100% - 12%);
+  /* max-height: calc(100% - 12%); */
   height: calc(100% - 12%);
   overflow: auto;
 }
@@ -85,7 +85,9 @@
   user-select: none;
 }
 .chat__msg {
-  user-select: none;
+  /* user-select: none; */
+  word-wrap: break-word;
+  text-align: left;
 }
 
 .chat__item.other {
