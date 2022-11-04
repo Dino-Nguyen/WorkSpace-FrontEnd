@@ -17,6 +17,7 @@
   font-weight: 600;
 }
 .content__header {
+  height: 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +26,9 @@
   color: #000;
 }
 .content__body {
-  max-height: calc(100vh - calc(100vh / 2));
+  /* max-height: calc(100vh - calc(100vh / 2)); */
+  max-height: calc(100% - 12%);
+  height: calc(100% - 12%);
   overflow: auto;
 }
 .chat__item {
@@ -103,9 +106,8 @@
   color: #d1d1d1;
 }
 .content__footer {
-  padding-top: 30px;
-  height: 100%;
-  bottom: 20px;
+  height: 6%;
+  bottom: 20;
 }
 .sendNewMessage {
   background-color: #fff;
