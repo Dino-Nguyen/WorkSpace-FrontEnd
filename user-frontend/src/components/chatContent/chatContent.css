@@ -104,6 +104,8 @@
 }
 .content__footer {
   padding-top: 30px;
+  height: 100%;
+  bottom: 20px;
 }
 .sendNewMessage {
   background-color: #fff;

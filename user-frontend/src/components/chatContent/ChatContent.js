@@ -1,5 +1,5 @@
 import React, { Component, useState, createRef, useEffect } from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./chatContent.css";
 import Avatar from "../chatList/Avatar";
 import ChatItem from "./ChatItem";
@@ -127,7 +127,7 @@ export default class ChatContent extends Component {
         <div className="content__footer">
           <div className="sendNewMessage">
             <button className="addFiles">
-              <i className="fa fa-microphone"></i>
+            <FontAwesomeIcon icon="fa-voicemail" />
             </button>
             <input
               type="text"
@@ -136,13 +136,14 @@ export default class ChatContent extends Component {
               value={this.state.msg}
             />
             <button className="btnSendMsg" id="sendMsgBtn">
-              <i className="fa fa-paper-plane"></i>
+            <FontAwesomeIcon icon="fa-solid fa-paper-plane" />
             </button>
             <button className="btnSendMsg" id="sendMsgBtn">
-              <i className="fa fa-image"></i>
+            <FontAwesomeIcon icon="fa-smile" />
+              
             </button>
             <button className="btnSendMsg" id="sendMsgBtn">
-              <i className="fa fa-smile-o"></i>
+            <FontAwesomeIcon icon="fa-location" />
             </button>
           </div>
         </div>
