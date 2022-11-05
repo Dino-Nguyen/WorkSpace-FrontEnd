@@ -6,8 +6,8 @@ import HTMLReactParser from 'html-react-parser';
 
 export default function ConfirmModal({
   title,
-  content,
   modalVisibility,
+  content,
   toggleModal,
   deleteListHandler,
 }) {

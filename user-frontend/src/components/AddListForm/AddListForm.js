@@ -64,6 +64,7 @@ export default function AddListForm({ setLists, setBoard }) {
             newLists = [...prev];
             newLists.pop();
             newLists.push(newList);
+
             return newLists;
           });
           setBoard((prev) => ({

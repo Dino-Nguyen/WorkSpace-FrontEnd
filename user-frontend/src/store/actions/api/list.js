@@ -15,7 +15,6 @@ const createList = async (payload) => {
 const updateList = async (listId, payload) => {
   try {
     const res = await axios.put(`/list/${listId}`, payload);
-    console.log(res);
     const { data } = res;
     return data;
   } catch (error) {

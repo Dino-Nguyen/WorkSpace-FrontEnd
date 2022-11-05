@@ -50,7 +50,7 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
     });
     if (!compareArrays(prevListsOrder, newListsOrder)) {
       const payload = { listsOrder: newListsOrder };
-      boardApi.updateListsOrder(id, payload).then((data) => {
+      boardApi.updateBoard(id, payload).then((data) => {
         console.log(data.message);
       });
     }
@@ -64,6 +64,10 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
       currentList.cardsOrder = currentList.cards.map((card) => card._id);
       setLists(reOrderedLists);
       if (dropResult.removedIndex !== null && dropResult.addedIndex !== null) {
+        // Move card inside list
+        if (dropResult.removedIndex === 0 && dropResult.addedIndex === 0) {
+          return;
+        }
         const payload = { cardsOrder: currentList.cardsOrder };
         listApi
           .updateList(listId, payload)
@@ -76,6 +80,7 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
             });
           });
       } else {
+        // Move card to other list
         let payload = { cardsOrder: currentList.cardsOrder };
         listApi
           .updateList(listId, payload)
@@ -93,9 +98,16 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
           const cardId = currentCard._id;
           const newListId = currentList._id;
           payload = { listId: newListId };
-          cardApi.updateCard(cardId, payload).then((data) => {
-            console.log(data.message);
-          });
+          cardApi
+            .updateCard(cardId, payload)
+            .then((data) => {
+              console.log(data.message);
+            })
+            .catch(() => {
+              toast.error('Something went wrong. Please try again.', {
+                theme: 'colored',
+              });
+            });
         }
       }
     }

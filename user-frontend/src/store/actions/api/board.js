@@ -12,10 +12,9 @@ const createBoard = async (payload) => {
   }
 };
 
-const updateListsOrder = async (boardId, payload) => {
+const updateBoard = async (boardId, payload) => {
   try {
     const res = await axios.put(`/board/${boardId}`, payload);
-    console.log(res);
     const { data } = res;
     return data;
   } catch (error) {
@@ -55,7 +54,7 @@ const fetchBoardDetail = async (boardId) => {
 
 const boardApi = {
   createBoard,
-  updateListsOrder,
+  updateBoard,
   fetchAllYoursBoards,
   fetchAllInvitedBoards,
   fetchBoardDetail,

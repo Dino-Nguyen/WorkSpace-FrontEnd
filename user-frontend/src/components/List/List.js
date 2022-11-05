@@ -133,7 +133,7 @@ export default function List({ list, listId, onCardDrop, setLists, setBoard }) {
             {cards &&
               cards.map((card) => (
                 <Draggable key={card._id}>
-                  <Card card={card} />
+                  <Card card={card} setLists={setLists} />
                 </Draggable>
               ))}
           </Container>

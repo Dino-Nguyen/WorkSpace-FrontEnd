@@ -1,15 +1,62 @@
+import React, { useState } from 'react';
+import CardDetail from './CardDetail';
+import CloseIcon from '@mui/icons-material/Close';
+import EditIcon from '@mui/icons-material/Edit';
 import classes from './Card.module.scss';
+import cardApi from '../../store/actions/api/card';
+import { toast } from 'react-toastify';
 
-export default function Card({ card }) {
+export default function Card({ card, setLists }) {
+  const [cardDetailVisibility, setCardDetailVisibility] = useState(false);
+
+  const toggleCardDetail = () => {
+    setCardDetailVisibility(!cardDetailVisibility);
+  };
+
+  const deleteCardHandler = () => {
+    const currentCardId = card._id;
+    const currentListId = card.listId;
+    let newLists = [];
+    setLists((prev) => {
+      newLists = [...prev];
+      const index = newLists.findIndex((list) => list._id === currentListId);
+      newLists[index].cardsOrder = newLists[index].cardsOrder.filter(
+        (cardId) => cardId !== currentCardId,
+      );
+      newLists[index].cards = newLists[index].cards.filter(
+        (card) => card._id !== currentCardId,
+      );
+      return newLists;
+    });
+    cardApi
+      .deleteCard(currentCardId)
+      .then((data) => {
+        console.log(data.message);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Something went wrong. Please try again!', {
+          theme: 'colored',
+        });
+      });
+  };
+
   return (
     <div className={classes['card']}>
-      {card.cover && <img src={card.cover} alt="card cover" />}
+      <button
+        className={classes['card--close-btn']}
+        onClick={deleteCardHandler}>
+        <CloseIcon />
+      </button>
+      <button className={classes['card--edit-btn']} onClick={toggleCardDetail}>
+        <EditIcon />
+      </button>
       <h4>{card.title}</h4>
-      <p>{card.description}</p>
+      {card.cover && <img src={card.cover} alt="card cover" />}
       <div>{card.endedAt}</div>
       <div>
         <div>{card.inCharge}</div>
-        <button>
+        <button className={classes['card--complete-btn']}>
           <svg
             width="17"
             height="17"

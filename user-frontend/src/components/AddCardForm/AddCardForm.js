@@ -62,9 +62,38 @@ export default function AddCardForm({
     setNewCardTitle('');
     toggleAddCardForm();
 
-    cardApi.createCard(payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
-    });
+    cardApi
+      .createCard(payload)
+      .then((data) => {
+        const { newCard, updatedList } = data;
+        console.log('updated list: ', updatedList);
+        if (newCard && updatedList) {
+          let newLists = [];
+          setLists((prev) => {
+            newLists = [...prev];
+            const index = newLists.findIndex(
+              (list) => list._id === updatedList._id,
+            );
+            newLists[index].cardsOrder.pop();
+            newLists[index].cardsOrder.push(newCard._id);
+            newLists[index].cards.pop();
+            newLists[index].cards.push(newCard);
+
+            return newLists;
+          });
+          setBoard((prev) => ({
+            ...prev,
+            lists: newLists,
+          }));
+        }
+        toast.success(data.message, { theme: 'colored' });
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Something went wrong. Please try again!', {
+          theme: 'colored',
+        });
+      });
   };
 
   return (

@@ -22,7 +22,15 @@ const updateCard = async (cardId, payload) => {
   }
 };
 
-const deleteCard = () => {};
+const deleteCard = async (cardId) => {
+  try {
+    const res = await axios.delete(`/card/${cardId}`);
+    const { data } = res;
+    return data;
+  } catch (error) {
+    toast.error(error.response.data.message, { theme: 'colored' });
+  }
+};
 
 const cardApi = { createCard, updateCard, deleteCard };
 
