@@ -22,7 +22,7 @@ export default function Dashboard({ sideBarVisibility, onSideBarShow }) {
   });
 
   return (
-    <React.Fragment>
+    <>
       <NavBar
         sideBarVisibility={sideBarVisibility}
         onSideBarShow={onSideBarShow}
@@ -34,6 +34,6 @@ export default function Dashboard({ sideBarVisibility, onSideBarShow }) {
       <section className={dashboardContainerClassName}>
         <DashboardChart />
       </section>
-    </React.Fragment>
+    </>
   );
 }
