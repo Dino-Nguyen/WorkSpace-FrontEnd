@@ -11,12 +11,11 @@ import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import Dashboard from './pages/Dashboard/dashboard';
 import TimeLine from './pages/Timeline/timeline';
-import Task from './pages/Tasks/tasks';
 import Settings from './pages/Settings/settings';
 import Files from './pages/Files/files';
 import NotFound from './pages/NotFound/NotFound';
-import Messages from './pages/Messages/messages';
-import Tasks from './pages/Tasks/tasks';
+import Messages from './pages/Messages/Messages';
+import Tasks from './pages/Tasks/Tasks';
 import TaskDetail from './pages/TaskDetail/TaskDetail'
 
 function App() {
