@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import './App.scss';
+import './App.css';
+import { useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import RequireAuth from './utils/RequireAuth';
+import { Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar';
+import Sidebar from './components/SideBar/SideBar';
+import RequireAuth from './utils/RequireAuth'
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import Dashboard from './pages/Dashboard/dashboard';
@@ -10,8 +14,8 @@ import TimeLine from './pages/Timeline/timeline';
 import Settings from './pages/Settings/settings';
 import Files from './pages/Files/files';
 import NotFound from './pages/NotFound/NotFound';
-import Tasks from './pages/Tasks/tasks';
 import Messages from './pages/Messages/messages';
+import Tasks from './pages/Tasks/tasks';
 import TaskDetail from './pages/TaskDetail/TaskDetail'
 
 function App() {
