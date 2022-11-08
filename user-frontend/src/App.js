@@ -5,13 +5,14 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import RequireAuth from './utils/RequireAuth';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
-import Dashboard from './pages/Dashboard/Dashboard';
-import TimeLine from './pages/TimeLine/Timeline';
-import Task from './pages/Task/Task';
-import Settings from './pages/Settings/Settings';
-import Message from './pages/Message/Message';
-import Files from './pages/Files/Files';
+import Dashboard from './pages/Dashboard/dashboard';
+import TimeLine from './pages/Timeline/timeline';
+import Settings from './pages/Settings/settings';
+import Files from './pages/Files/files';
 import NotFound from './pages/NotFound/NotFound';
+import Tasks from './pages/Tasks/tasks';
+import Messages from './pages/Messages/messages';
+import TaskDetail from './pages/TaskDetail/TaskDetail'
 
 function App() {
   const [sideBarVisibility, setSideBarVisibility] = useState(false);
@@ -40,7 +41,7 @@ function App() {
           <Route
             path="timeline"
             element={
-              <Timeline
+              <TimeLine
                 sideBarVisibility={sideBarVisibility}
                 onSideBarShow={setSideBarVisibility}
               />
