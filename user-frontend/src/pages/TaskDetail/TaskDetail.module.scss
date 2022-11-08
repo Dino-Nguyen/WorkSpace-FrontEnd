@@ -1,4 +1,4 @@
-.dashboard-container {
+.task-detail-container {
   position: relative;
   top: 80px;
   left: 80px;
@@ -8,9 +8,23 @@
   overflow: hidden;
   font-family: 'DM Sans';
   background: #f3f4f8;
+  color: #232360;
 }
 
 .show-side-bar {
   left: calc(60px + 20px);
   width: calc(100vw - 80px);
+}
+
+.board-list--container {
+  display: flex;
+  padding-left: 50px;
+  overflow-x: auto;
+  font-family: 'DM Sans';
+}
+
+.list-drop-preview {
+  background-color: rgba(150, 150, 200, 0.1);
+  border: 1px dashed #abc;
+  margin: 5px;
 }

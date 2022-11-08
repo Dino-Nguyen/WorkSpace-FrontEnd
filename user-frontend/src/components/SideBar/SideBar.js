@@ -13,7 +13,7 @@ export default function Sidebar({ sideBarVisibility, onSideBarShow }) {
 
   const arrOptions = [
     {
-      to: 'Dashboard',
+      to: 'dashboard',
       icon: (
         <svg
           width="20"
@@ -45,7 +45,7 @@ export default function Sidebar({ sideBarVisibility, onSideBarShow }) {
       ),
     },
     {
-      to: 'Timeline',
+      to: 'timeline',
       icon: (
         <svg
           width="20"
@@ -58,7 +58,7 @@ export default function Sidebar({ sideBarVisibility, onSideBarShow }) {
       ),
     },
     {
-      to: 'Tasks',
+      to: 'tasks',
       icon: (
         <svg
           width="20"
@@ -71,7 +71,7 @@ export default function Sidebar({ sideBarVisibility, onSideBarShow }) {
       ),
     },
     {
-      to: 'Setting',
+      to: 'settings',
       icon: (
         <svg
           width="20"
@@ -84,7 +84,7 @@ export default function Sidebar({ sideBarVisibility, onSideBarShow }) {
       ),
     },
     {
-      to: 'Messages',
+      to: 'messages',
       icon: (
         <svg
           width="20"
@@ -97,7 +97,7 @@ export default function Sidebar({ sideBarVisibility, onSideBarShow }) {
       ),
     },
     {
-      to: 'Files',
+      to: 'files',
       icon: (
         <svg
           width="20"
@@ -138,7 +138,7 @@ export default function Sidebar({ sideBarVisibility, onSideBarShow }) {
         <List className={classes['nav-list']}>
           {arrOptions.map((el, i) => (
             <NavLink
-              to={`/${el.to.toLowerCase()}`}
+              to={`/${el.to}`}
               key={i}
               className={({ isActive }) => (isActive ? classes['active'] : '')}>
               <ListItemIcon className={classes['nav-list--icon-container']}>
