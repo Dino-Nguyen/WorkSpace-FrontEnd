@@ -11,6 +11,7 @@ import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import Dashboard from './pages/Dashboard/dashboard';
 import TimeLine from './pages/Timeline/timeline';
+import Task from './pages/Tasks/tasks';
 import Settings from './pages/Settings/settings';
 import Files from './pages/Files/files';
 import NotFound from './pages/NotFound/NotFound';
