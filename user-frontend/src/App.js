@@ -5,13 +5,13 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import RequireAuth from './utils/RequireAuth';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Timeline from './pages/Timeline/Timeline';
+import Dashboard from './pages/Dashboard/dashboard';
+import Timeline from './pages/Timeline/timeline';
 import Tasks from './pages/Tasks/Tasks';
 import TaskDetail from './pages/TaskDetail/TaskDetail';
-import Settings from './pages/Settings/Settings';
+import Settings from './pages/Settings/settings';
 import Messages from './pages/Messages/Messages';
-import Files from './pages/Files/Files';
+import Files from './pages/Files/files';
 import NotFound from './pages/NotFound/NotFound';
 
 function App() {
