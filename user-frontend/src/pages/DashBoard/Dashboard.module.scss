@@ -8,8 +8,11 @@
   overflow: hidden;
   font-family: 'DM Sans';
   background: #f3f4f8;
+  
 }
-
+.dashboard-frame {
+  display: flex;
+}
 .show-side-bar {
   left: calc(80px + 20px);
   width: calc(100vw - 80px - 20px);

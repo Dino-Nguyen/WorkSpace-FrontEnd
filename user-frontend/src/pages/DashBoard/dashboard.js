@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import classes from './Dashboard.module.scss';
 import DashboardChart from '../../components/DashboardChart/DashboardChart';
+import DashboardTaskCompleted from '../../components/DashboardTaskCompleted/DashboardTaskCompleted'
+import DashboardPendingTask from '../../components/DashboardPendingTask/DashboardPendingTask';
+import DashboardScheudle from '../../components/DashboardScheudle/DashboardScheudle';
 import clsx from 'clsx';
 
 export default function Dashboard({ sideBarVisibility }) {
@@ -21,7 +24,17 @@ export default function Dashboard({ sideBarVisibility }) {
 
   return (
     <div className={dashboardContainerClassName}>
-      <DashboardChart />
+      <div className={classes['dashboard-frame']}>
+        <div>
+          <DashboardTaskCompleted/>
+          <DashboardChart />
+          <DashboardPendingTask/>
+        </div>
+        <div >
+           <DashboardScheudle/>
+        </div>
+      </div>
+      
     </div>
   );
 }

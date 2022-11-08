@@ -8,12 +8,12 @@ import NavBar from './components/NavBar/NavBar';
 import Sidebar from './components/SideBar/SideBar';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
-import Dashboard from './pages/Dashboard/Dashboard';
-import TimeLine from './pages/TimeLine/Timeline';
-import Task from './pages/Task/Task';
-import Settings from './pages/Settings/Settings';
-import Message from './pages/Message/Message';
-import Files from './pages/Files/Files';
+import Dashboard from './pages/DashBoard/dashboard.js';
+import TimeLine from './pages/TimeLine/timeline';
+import Task from './pages/Task/task';
+import Settings from './pages/Settings/settings';
+import Message from './pages/Message/message';
+import Files from './pages/Files/files';
 import NotFound from './pages/NotFound/NotFound';
 
 function App() {
