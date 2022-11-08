@@ -20,7 +20,6 @@ export const signIn = (payload, navigate, toast) => {
       localStorage.setItem('isAuthenticated', true);
       localStorage.setItem('user', JSON.stringify(user));
       dispatch(authActions.signIn(user));
-      setBearerToken(user.token);
       toast.success(message, { theme: 'colored' });
       if (message) navigate('/dashboard');
     } catch (error) {

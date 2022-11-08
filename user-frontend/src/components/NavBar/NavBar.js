@@ -89,7 +89,7 @@ export default function NavBar({ sideBarVisibility, onSideBarShow }) {
             disableUnderline
             variant="filled"
             sx={{
-              background: '#ffffff',
+              background: 'none',
               '& .MuiSvgIcon-root': {
                 fontSize: '1.8rem',
                 color: '#5051f9',
@@ -98,7 +98,7 @@ export default function NavBar({ sideBarVisibility, onSideBarShow }) {
             IconComponent={KeyboardArrowDownIcon}>
             <MenuItem
               onClick={() => {
-                navigate('/setting');
+                navigate('/settings');
               }}>
               Your Profile
             </MenuItem>

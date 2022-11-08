@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import Sidebar from '../../components/SideBar/SideBar';
 
-export default function Files({ sideBarVisibility, onSideBarShow }) {
+export default function Messages({ sideBarVisibility, onSideBarShow }) {
   return (
     <React.Fragment>
       <NavBar
@@ -13,7 +13,7 @@ export default function Files({ sideBarVisibility, onSideBarShow }) {
         sideBarVisibility={sideBarVisibility}
         onSideBarShow={onSideBarShow}
       />
-      <h1>File</h1>
+      <h1>Messages</h1>
     </React.Fragment>
   );
 }

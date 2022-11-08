@@ -1,11 +1,13 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import classes from './Dashboard.module.scss';
+import NavBar from '../../components/NavBar/NavBar';
+import Sidebar from '../../components/SideBar/SideBar';
 import DashboardChart from '../../components/DashboardChart/DashboardChart';
 import clsx from 'clsx';
 
-export default function Dashboard({ sideBarVisibility }) {
+export default function Dashboard({ sideBarVisibility, onSideBarShow }) {
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
@@ -20,8 +22,18 @@ export default function Dashboard({ sideBarVisibility }) {
   });
 
   return (
-    <div className={dashboardContainerClassName}>
-      <DashboardChart />
-    </div>
+    <>
+      <NavBar
+        sideBarVisibility={sideBarVisibility}
+        onSideBarShow={onSideBarShow}
+      />
+      <Sidebar
+        sideBarVisibility={sideBarVisibility}
+        onSideBarShow={onSideBarShow}
+      />
+      <section className={dashboardContainerClassName}>
+        <DashboardChart />
+      </section>
+    </>
   );
 }
