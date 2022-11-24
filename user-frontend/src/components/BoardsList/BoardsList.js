@@ -43,15 +43,30 @@ export default function BoardsList({ onNewBoardFormShow }) {
                 onClick={() => {
                   toBoardDetail(board._id);
                 }}
-                className={clsx(classes['your-boards--item'])}>
+                className={clsx(classes['your-boards--item'])}
+                style={
+                  board.background
+                    ? {
+                        background: `url(${board.background}) center/cover no-repeat`,
+                        color: '#ffffff',
+                        textShadow: '1px 2px black',
+                      }
+                    : { background: '#ffffff' }
+                }>
                 <p>{board.title}</p>
               </article>
             ))}
-          <button onClick={showCreateBoardFormHandler}>Create New Board</button>
+          <button
+            onClick={showCreateBoardFormHandler}
+            className={classes['create-btn']}>
+            Create New Board
+          </button>
         </div>
       </div>
       <div className={clsx(classes['guest-boards--container'])}>
-        <h3>Guest Boards</h3>
+        {invitedBoards && invitedBoards.length !== 0 && (
+          <h3>Guest Workspace</h3>
+        )}
         <div className={clsx(classes['guest-boards'])}>
           {invitedBoards &&
             invitedBoards.map((board) => (
@@ -60,6 +75,15 @@ export default function BoardsList({ onNewBoardFormShow }) {
                 onClick={() => {
                   toBoardDetail(board._id);
                 }}
+                style={
+                  board.background
+                    ? {
+                        background: `url(${board.background}) center/cover no-repeat`,
+                        color: '#ffffff',
+                        textShadow: '1px 2px black',
+                      }
+                    : { background: '#ffffff' }
+                }
                 className={clsx(classes['guest-boards--item'])}>
                 <p>{board.title}</p>
               </article>

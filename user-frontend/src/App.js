@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.scss';
+import './App.css';
 import { ToastContainer } from 'react-toastify';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import RequireAuth from './utils/RequireAuth';
@@ -12,6 +12,7 @@ import TaskDetail from './pages/TaskDetail/TaskDetail';
 import Settings from './pages/Settings/Settings';
 import Messages from './pages/Messages/Messages';
 import Files from './pages/Files/Files';
+import UserInfo from './pages/UserInfo/UserInfo';
 import NotFound from './pages/NotFound/NotFound';
 
 function App() {
@@ -56,15 +57,17 @@ function App() {
               />
             }
           />
-          <Route
-            path="tasks/:id"
-            element={
-              <TaskDetail
-                sideBarVisibility={sideBarVisibility}
-                onSideBarShow={setSideBarVisibility}
-              />
-            }
-          />
+          <Route path="tasks">
+            <Route
+              path=":id"
+              element={
+                <TaskDetail
+                  sideBarVisibility={sideBarVisibility}
+                  onSideBarShow={setSideBarVisibility}
+                />
+              }
+            />
+          </Route>
           <Route
             path="settings"
             element={
@@ -87,6 +90,15 @@ function App() {
             path="files"
             element={
               <Files
+                sideBarVisibility={sideBarVisibility}
+                onSideBarShow={setSideBarVisibility}
+              />
+            }
+          />
+          <Route
+            path="user/:id"
+            element={
+              <UserInfo
                 sideBarVisibility={sideBarVisibility}
                 onSideBarShow={setSideBarVisibility}
               />

@@ -19,7 +19,7 @@ export const signIn = (payload, navigate, toast) => {
       localStorage.setItem('token', user.token);
       localStorage.setItem('isAuthenticated', true);
       localStorage.setItem('user', JSON.stringify(user));
-      dispatch(authActions.signIn(user));
+      dispatch(authActions.signIn(JSON.stringify(user)));
       toast.success(message, { theme: 'colored' });
       if (message) navigate('/dashboard');
     } catch (error) {
@@ -28,7 +28,7 @@ export const signIn = (payload, navigate, toast) => {
   };
 };
 
-export const signOut = (navigate, toast) => {
+export const signOut = (navigate) => {
   return (dispatch) => {
     setBearerToken('');
     localStorage.removeItem('token');
@@ -36,13 +36,17 @@ export const signOut = (navigate, toast) => {
     localStorage.removeItem('user');
     dispatch(authActions.signOut());
     navigate('/');
-    toast.success('Successfully sign out.', { theme: 'colored' });
+  };
+};
+
+export const update = (user) => {
+  return (dispatch) => {
+    dispatch(authActions.update(user));
   };
 };
 
 export const signUp = async (payload, navigate, toast) => {
   try {
-    console.log('payload: ', payload);
     const res = await axios.post('/sign-up', payload);
     const { message } = res.data;
     toast.success(message, { theme: 'colored' });

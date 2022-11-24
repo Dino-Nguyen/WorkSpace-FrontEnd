@@ -41,13 +41,16 @@
       justify-content: space-between;
 
       & button {
-        margin: 0 5px;
         border: none;
         cursor: pointer;
         padding: 4px 7px;
+        margin-left: 10px;
 
         &:first-child {
           background: none;
+          padding: 2px;
+          display: flex;
+          align-items: center;
 
           &:hover {
             & svg {
@@ -59,11 +62,14 @@
         &:last-child {
           background: #e8eaff;
           border-radius: 7px;
+          padding: 2px;
+          display: flex;
+          align-items: center;
 
           &:hover {
             background: #6772fe;
 
-            & rect {
+            & svg {
               fill: #e8eaff;
             }
           }
@@ -82,7 +88,26 @@
 
   &--body {
     padding: 0;
+    max-height: 70vh;
+    overflow-y: auto;
   }
+}
+
+.list--body::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f3f4f8;
+}
+
+.list--body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f3f4f8;
+}
+
+.list--body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #232360;
 }
 
 .card-ghost {

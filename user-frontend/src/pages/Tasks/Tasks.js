@@ -4,7 +4,7 @@ import Sidebar from '../../components/SideBar/SideBar';
 import clsx from 'clsx';
 import classes from './Tasks.module.scss';
 import BoardsList from '../../components/BoardsList/BoardsList';
-import CreateBoardForm from '../../components/CreateBoardForm/CreateBoardForm';
+import AddBoardForm from '../../components/AddBoardForm/AddBoardForm';
 
 export default function Tasks({ sideBarVisibility, onSideBarShow }) {
   const [newBoardFormVisibility, setNewBoardFormVisibility] = useState(false);
@@ -25,7 +25,7 @@ export default function Tasks({ sideBarVisibility, onSideBarShow }) {
       />
       <section className={tasksContainerClassName}>
         <BoardsList onNewBoardFormShow={setNewBoardFormVisibility} />
-        <CreateBoardForm
+        <AddBoardForm
           newBoardFormVisibility={newBoardFormVisibility}
           onNewBoardFormShow={setNewBoardFormVisibility}
         />

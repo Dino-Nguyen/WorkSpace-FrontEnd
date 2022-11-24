@@ -4,7 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import classes from './Dashboard.module.scss';
 import NavBar from '../../components/NavBar/NavBar';
 import Sidebar from '../../components/SideBar/SideBar';
+import DashboardStatistic from '../../components/DashboardStatistic/DashboardStatistic';
 import DashboardChart from '../../components/DashboardChart/DashboardChart';
+import DashboardProgress from '../../components/DashboardProgress/DashboardProgress';
+import DashboardMessage from '../../components/DashBoardMessage/DashboardMessage';
 import clsx from 'clsx';
 
 export default function Dashboard({ sideBarVisibility, onSideBarShow }) {
@@ -22,7 +25,7 @@ export default function Dashboard({ sideBarVisibility, onSideBarShow }) {
   });
 
   return (
-    <>
+    <React.Fragment>
       <NavBar
         sideBarVisibility={sideBarVisibility}
         onSideBarShow={onSideBarShow}
@@ -32,8 +35,16 @@ export default function Dashboard({ sideBarVisibility, onSideBarShow }) {
         onSideBarShow={onSideBarShow}
       />
       <section className={dashboardContainerClassName}>
-        <DashboardChart />
+        <div className={classes['dashboard-stats']}>
+          <DashboardStatistic />
+          <DashboardChart />
+          <DashboardProgress />
+        </div>
+        <div className={classes['dashboard-message']}>
+          <h3>Messages</h3>
+          <DashboardMessage />
+        </div>
       </section>
-    </>
+    </React.Fragment>
   );
 }

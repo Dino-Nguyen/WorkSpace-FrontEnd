@@ -1,26 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from '../../store/actions/auth';
-import { toast } from 'react-toastify';
+import SearchPreview from '../SearchPreview/SearchPreview';
 import { Avatar, Select, MenuItem } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import MenuOpenRoundedIcon from '@mui/icons-material/MenuOpenRounded';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import classes from './NavBar.module.scss';
 import clsx from 'clsx';
+import { useSelector } from 'react-redux';
 
 export default function NavBar({ sideBarVisibility, onSideBarShow }) {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const userState = useSelector((state) => state.auth.user);
+  const user = JSON.parse(userState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [query, setQuery] = useState('');
+  const reg = /\s\s+/g;
+  const searchValue = query.replace(reg, ' ').trim();
+  const [searchPreviewVisibility, setSearchPreviewVisibility] = useState(false);
+
+  const queryChangeHandler = (e) => {
+    setQuery(e.target.value);
+  };
 
   const toggleSideBarHandler = () => {
     onSideBarShow(!sideBarVisibility);
   };
 
+  const showSearchPreviewHandler = () => {
+    setSearchPreviewVisibility(true);
+  };
+
+  const closeSearchPreviewHandler = () => {
+    setSearchPreviewVisibility(false);
+  };
+
   const signOutHandler = () => {
-    dispatch(signOut(navigate, toast));
+    dispatch(signOut(navigate));
   };
 
   const menuBtnClassName = clsx(classes['nav--menu-btn'], {
@@ -40,8 +58,15 @@ export default function NavBar({ sideBarVisibility, onSideBarShow }) {
           </button>
         )}
       </div>
-      <form className={classes['nav--search-bar']}>
-        <input placeholder="Search anything..." type="text" />
+      <form
+        className={classes['nav--search-bar']}
+        onFocus={showSearchPreviewHandler}>
+        <input
+          placeholder="Search..."
+          type="text"
+          value={query}
+          onChange={queryChangeHandler}
+        />
         <button type="submit">
           <svg
             width="21"
@@ -55,6 +80,12 @@ export default function NavBar({ sideBarVisibility, onSideBarShow }) {
             />
           </svg>
         </button>
+        {searchPreviewVisibility && (
+          <SearchPreview
+            closeSearchPreviewHandler={closeSearchPreviewHandler}
+            query={searchValue}
+          />
+        )}
       </form>
       <div className={classes['nav--user-profile']}>
         <div className={classes['notification']}>

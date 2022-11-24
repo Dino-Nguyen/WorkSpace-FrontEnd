@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import { Modal, Button } from 'react-bootstrap';
 import classes from './ConfirmModal.module.scss';
 import HTMLReactParser from 'html-react-parser';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function ConfirmModal({
   title,
   modalVisibility,
   content,
   toggleModal,
-  deleteListHandler,
+  onAction,
 }) {
   return (
     <React.Fragment>
@@ -21,14 +22,16 @@ export default function ConfirmModal({
       <Modal show={modalVisibility} className={classes['modal']}>
         <Modal.Header className={classes['modal--header']}>
           <Modal.Title>{HTMLReactParser(title)}</Modal.Title>
-          <Button onClick={toggleModal}>X</Button>
+          <Button onClick={toggleModal}>
+            <CloseIcon />
+          </Button>
         </Modal.Header>
         <Modal.Body className={classes['modal--body']}>
           {HTMLReactParser(content)}
         </Modal.Body>
         <Modal.Footer className={classes['modal--footer']}>
           <Button onClick={toggleModal}>Cancel</Button>
-          <Button onClick={deleteListHandler}>OK</Button>
+          <Button onClick={onAction}>OK</Button>
         </Modal.Footer>
       </Modal>
     </React.Fragment>
