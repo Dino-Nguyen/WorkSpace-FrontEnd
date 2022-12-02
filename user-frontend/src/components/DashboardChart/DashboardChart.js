@@ -37,10 +37,7 @@ export default function DashboardChart() {
         <h2>Task Done</h2>
         <h2>Monthly</h2>
       </div>
-      <ResponsiveContainer
-        width="100%"
-        height="80%"
-        className={classes['chart--content']}>
+      <ResponsiveContainer width="100%" height="80%">
         <AreaChart
           width="100%"
           height="100%"

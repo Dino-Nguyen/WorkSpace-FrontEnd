@@ -4,7 +4,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import Sidebar from '../../components/SideBar/SideBar';
 import clsx from 'clsx';
 import classes from './TaskDetail.module.scss';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { Container, Draggable } from 'react-smooth-dnd';
 import boardApi from '../../store/actions/api/board';
 import listApi from '../../store/actions/api/list';
@@ -24,6 +24,7 @@ import BackgroundSelection from '../../components/BackgroundSelection/Background
 import { toast } from 'react-toastify';
 
 export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
+  const [query] = useSearchParams();
   const { id } = useParams();
   const navigate = useNavigate();
   const [board, setBoard] = useState({});
@@ -36,6 +37,7 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
   const [membersFormVisibility, setMembersFormVisibility] = useState(false);
   const [modalVisibility, setModalVisibility] = useState(false);
   const [more, setMore] = useState(false);
+  const [findCard, setFindCard] = useState();
   const user = JSON.parse(localStorage.getItem('user'));
   const userId = user._id;
 
@@ -60,8 +62,15 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
   useEffect(() => {
     boardApi.fetchBoardDetail(id).then((data) => {
       setBoard(data.board);
+      if (query.get('taskId')) {
+        let findCard = data.board.cards.find(
+          (card) => card._id === query.get('taskId'),
+        );
+        if (findCard) {
+        }
+      }
     });
-  }, [id]);
+  }, [id, query]);
 
   useEffect(() => {
     if (!isEmptyObj(board)) {
