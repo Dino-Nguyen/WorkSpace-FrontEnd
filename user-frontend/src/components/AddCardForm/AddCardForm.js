@@ -31,13 +31,11 @@ export default function AddCardForm({
       toast.error('Please enter card title!', { theme: 'colored' });
       return;
     }
-
     const payload = {
       title: newCardTitle,
       boardId: id,
       listId,
     };
-
     const addCard = {
       _id: Math.floor(Math.random() * 18081998),
       title: newCardTitle,
@@ -45,8 +43,8 @@ export default function AddCardForm({
       listId,
     };
     const newList = JSON.parse(JSON.stringify(list));
-    newList.cards.push(addCard);
-    newList.cardsOrder.push(addCard._id);
+    newList.cards.unshift(addCard);
+    newList.cardsOrder.unshift(addCard._id);
     let newLists = [];
     setLists((prev) => {
       newLists = [...prev];
@@ -66,7 +64,6 @@ export default function AddCardForm({
       .createCard(payload)
       .then((data) => {
         const { newCard, updatedList } = data;
-        console.log('updated list: ', updatedList);
         if (newCard && updatedList) {
           let newLists = [];
           setLists((prev) => {
@@ -74,10 +71,10 @@ export default function AddCardForm({
             const index = newLists.findIndex(
               (list) => list._id === updatedList._id,
             );
-            newLists[index].cardsOrder.pop();
-            newLists[index].cardsOrder.push(newCard._id);
-            newLists[index].cards.pop();
-            newLists[index].cards.push(newCard);
+            newLists[index].cardsOrder.shift();
+            newLists[index].cardsOrder.unshift(newCard._id);
+            newLists[index].cards.shift();
+            newLists[index].cards.unshift(newCard);
 
             return newLists;
           });

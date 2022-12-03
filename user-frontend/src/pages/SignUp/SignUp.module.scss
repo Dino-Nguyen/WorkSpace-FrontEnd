@@ -1,3 +1,5 @@
+@import '../../setting';
+
 .container {
   position: absolute;
   width: 100%;
@@ -15,8 +17,8 @@
   border-radius: 16px;
 
   .background {
-    background: url('../../assets/sign-up-background.jpg') top 40% center/cover
-      no-repeat;
+    background: url('../../../public/images/sign-up-background.jpg') top 40%
+      center/cover no-repeat;
     border-radius: 16px;
     margin: 1.5%;
     width: 100%;
@@ -123,30 +125,6 @@
       font-size: 1rem;
       cursor: pointer;
     }
-  }
-}
-
-@mixin media-small {
-  @media screen and (max-width: 480px) {
-    @content;
-  }
-}
-
-@mixin media-medium {
-  @media screen and (max-width: 768px) {
-    @content;
-  }
-}
-
-@mixin media-lg {
-  @media screen and (max-width: 1024px) {
-    @content;
-  }
-}
-
-@mixin media-xl {
-  @media screen and (max-width: 1600px) {
-    @content;
   }
 }
 

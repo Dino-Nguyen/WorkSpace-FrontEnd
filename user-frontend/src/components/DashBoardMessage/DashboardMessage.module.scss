@@ -1,0 +1,24 @@
+.chat--container {
+  padding: 15px 0;
+  color: #232360;
+
+  .chat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    &--content {
+      padding-left: 10px;
+
+      & h4 {
+        margin: 5px 0;
+      }
+
+      & p {
+        margin: 5px 0;
+        color: #768396;
+      }
+    }
+  }
+}

@@ -20,6 +20,9 @@ const authSlice = createSlice({
       state.token = null;
       state.isAuthenticated = null;
     },
+    update: (state, action) => {
+      state.user = action.payload;
+    },
   },
 });
 
