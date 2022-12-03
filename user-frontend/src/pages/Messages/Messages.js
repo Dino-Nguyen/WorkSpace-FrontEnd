@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import Sidebar from '../../components/SideBar/SideBar';
+import ChatBody from "../../components/chatBody/ChatBody";
+
 
 export default function Messages({ sideBarVisibility, onSideBarShow }) {
   return (
@@ -13,7 +15,9 @@ export default function Messages({ sideBarVisibility, onSideBarShow }) {
         sideBarVisibility={sideBarVisibility}
         onSideBarShow={onSideBarShow}
       />
-      <h1>Messages</h1>
+      <div className="main">
+      <ChatBody />
+    </div>
     </React.Fragment>
   );
 }
