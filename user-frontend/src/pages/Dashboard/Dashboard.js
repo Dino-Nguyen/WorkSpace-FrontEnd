@@ -41,7 +41,6 @@ export default function Dashboard({ sideBarVisibility, onSideBarShow }) {
           <DashboardProgress />
         </div>
         <div className={classes['dashboard-message']}>
-          <h3>Messages</h3>
           <DashboardMessage />
         </div>
       </section>

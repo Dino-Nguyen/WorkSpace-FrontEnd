@@ -66,7 +66,7 @@ export default function SearchPreview({ query, closeSearchPreviewHandler }) {
                 <div
                   key={card._id}
                   onClick={() => {
-                    navigate(`/tasks/${card.boardId}?taskId=${card._id}`);
+                    navigate(`/tasks/${card.boardId}?cardId=${card._id}`);
                     closeSearchPreviewHandler();
                   }}
                   className={classes['search-preview--cards--item']}>
