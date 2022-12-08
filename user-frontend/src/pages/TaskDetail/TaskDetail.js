@@ -21,6 +21,7 @@ import AddListForm from '../../components/AddListForm/AddListForm';
 import BoardMembersForm from '../../components/BoardMembers/BoardMembers';
 import ConfirmModal from '../../components/ConfirmModal/ConfirmModal';
 import BackgroundSelection from '../../components/BackgroundSelection/BackgroundSelection';
+import SearchCardDetail from '../../components/SearchCardDetail/SearchCardDetail';
 import { toast } from 'react-toastify';
 
 export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
@@ -37,7 +38,9 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
   const [membersFormVisibility, setMembersFormVisibility] = useState(false);
   const [modalVisibility, setModalVisibility] = useState(false);
   const [more, setMore] = useState(false);
-  const [findCard, setFindCard] = useState();
+  const [searchedCardDetail, setSearchedCardDetail] = useState({});
+  const [searchedCardDetailVisibility, setSearchedCardDetailVisibility] =
+    useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
   const userId = user._id;
 
@@ -62,12 +65,14 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
   useEffect(() => {
     boardApi.fetchBoardDetail(id).then((data) => {
       setBoard(data.board);
-      if (query.get('taskId')) {
-        let findCard = data.board.cards.find(
-          (card) => card._id === query.get('taskId'),
-        );
-        if (findCard) {
-        }
+      if (query.get('cardId')) {
+        const result = data.board.lists
+          .map((list) => {
+            return list.cards.find((card) => card._id === query.get('cardId'));
+          })
+          .filter((element) => element !== undefined)[0];
+        setSearchedCardDetail(result);
+        setSearchedCardDetailVisibility(true);
       }
     });
   }, [id, query]);
@@ -321,6 +326,17 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
             onUpdateBackground={updateBackgroundHandler}
           />,
           document.getElementById('modal-root'),
+        )}
+      {searchedCardDetailVisibility &&
+        ReactDOM.createPortal(
+          <SearchCardDetail
+            card={searchedCardDetail}
+            setLists={setLists}
+            members={members}
+            owner={board.owner[0]}
+            setSearchedCardDetailVisibility={setSearchedCardDetailVisibility}
+          />,
+          document.getElementById('card-detail-root'),
         )}
     </React.Fragment>
   );

@@ -44,7 +44,7 @@ export default function SignUp() {
       </div>
       <div className={classes['form-container']}>
         <form onSubmit={signUpHandler} className={classes.form}>
-          <h1 className={classes['form--title']}>Sign Up</h1>
+          <h1 className={classes['form--title']}>SIGN UP</h1>
           <div className={classes['form--brands']}>
             <button type="button">
               <FontAwesomeIcon icon={faFacebook} size="xl" />
