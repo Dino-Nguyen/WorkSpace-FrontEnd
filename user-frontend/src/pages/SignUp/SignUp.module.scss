@@ -69,8 +69,14 @@
       width: 100%;
       margin-bottom: 15px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
+
+      &:last-of-type {
+        flex-direction: row;
+      }
 
       & input {
         border: 1px solid #c7ccd0;
@@ -126,6 +132,36 @@
       cursor: pointer;
     }
   }
+}
+
+.offscreen {
+  display: none;
+}
+
+.instruction {
+  display: block;
+  text-align: justify;
+  width: 95%;
+  font-size: 1rem;
+  color: #e93b77;
+
+  & svg {
+    transform: scale(1.25);
+    margin-right: 5px;
+  }
+}
+
+.valid,
+.invalid {
+  position: absolute;
+  top: 8px;
+  right: 25px;
+  font-size: 1.25rem;
+  color: #e93b77;
+}
+
+.error-message {
+  display: block;
 }
 
 @include media-xl {

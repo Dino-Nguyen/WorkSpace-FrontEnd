@@ -27,6 +27,14 @@ export default function AddListForm({ setLists, setBoard }) {
       return;
     }
 
+    if (newListTitle.length >= 1 && newListTitle.length < 3) {
+      newListInputRef.current.focus();
+      toast.error('List title must be at least 3 characters long.', {
+        theme: 'colored',
+      });
+      return;
+    }
+
     const payload = { title: newListTitle, boardId: id };
 
     let newLists = [];
