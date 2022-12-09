@@ -41,6 +41,7 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
   const [searchedCardDetail, setSearchedCardDetail] = useState({});
   const [searchedCardDetailVisibility, setSearchedCardDetailVisibility] =
     useState(false);
+  const [searchedListTitle, setSearchedListTitle] = useState('');
   const user = JSON.parse(localStorage.getItem('user'));
   const userId = user._id;
 
@@ -71,6 +72,10 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
             return list.cards.find((card) => card._id === query.get('cardId'));
           })
           .filter((element) => element !== undefined)[0];
+        const listTitle = data.board.lists.find(
+          (list) => list._id === result.listId,
+        ).title;
+        setSearchedListTitle(listTitle);
         setSearchedCardDetail(result);
         setSearchedCardDetailVisibility(true);
       }
@@ -331,6 +336,7 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
         ReactDOM.createPortal(
           <SearchCardDetail
             card={searchedCardDetail}
+            listTitle={searchedListTitle}
             setLists={setLists}
             members={members}
             owner={board.owner[0]}

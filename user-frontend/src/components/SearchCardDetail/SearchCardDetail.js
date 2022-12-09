@@ -12,6 +12,7 @@ import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRou
 import CloseIcon from '@mui/icons-material/Close';
 import Loading from '../Loading/Loading';
 import { convertToDate1 } from '../../utils/convert-date';
+import HTMLReactParser from 'html-react-parser';
 
 export default function SearchCardDetail({
   setSearchedCardDetailVisibility,
@@ -19,6 +20,7 @@ export default function SearchCardDetail({
   setLists,
   members,
   owner,
+  listTitle,
 }) {
   let prevCardTitle = card.title;
   const [cardTitle, setCardTitle] = useState(prevCardTitle);
@@ -258,6 +260,7 @@ export default function SearchCardDetail({
             className={classes['editable-title']}
           />
           <div className={classes['end-date']}>
+            <p>in list {HTMLReactParser(`<u>${listTitle}</u>`)}</p>
             <div>
               <label htmlFor="end-date">Due date: </label>
               <input

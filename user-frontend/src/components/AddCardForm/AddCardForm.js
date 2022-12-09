@@ -31,6 +31,13 @@ export default function AddCardForm({
       toast.error('Please enter card title!', { theme: 'colored' });
       return;
     }
+    if (newCardTitle.length >= 1 && newCardTitle.length < 3) {
+      newCardInputRef.current.focus();
+      toast.error('Card title must be at least 3 characters long.', {
+        theme: 'colored',
+      });
+      return;
+    }
     const payload = {
       title: newCardTitle,
       boardId: id,
