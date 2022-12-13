@@ -1,25 +1,20 @@
-import React, { Component } from "react";
 import Avatar from "../chatList/Avatar";
 
-export default class ChatItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div
-        style={{ animationDelay: `0.8s` }}
-        className={`chat__item ${this.props.user ? this.props.user : ""}`}
-      >
-        <div className="chat__item__content">
-          <div className="chat__msg">{this.props.msg}</div>
-          <div className="chat__meta">
-            <span>0 min ago</span>
-            <span>Sent 1.30</span>
-          </div>
+export default function ChatItem(props) {
+  return (
+    <div
+      style={{ animationDelay: `0.8s` }}
+      className={`chat__item ${props.user ? props.user : ""}`}
+    >
+      <div className="chat__item__content">
+        <div className="chat__msg">{props.msg}</div>
+        <div className="chat__meta">
+          <span>0 min ago</span>
+          <span>Sent 1.30</span>
         </div>
-        <Avatar isOnline="active" image={this.props.image} />
       </div>
-    );
-  }
+      <Avatar isOnline="active" image={props.image} />
+    </div>
+  );
 }
+

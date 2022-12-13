@@ -1,9 +1,14 @@
-import React, { Component } from "react";
 import "./chatList.css";
+import "./Add.css"
 import ChatListItems from "./ChatListItems";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Add from "./Add";
+import { useState } from "react";
 
-export default class ChatList extends Component {
-  allChatUsers = [
+export default function ChatList() {
+  const [isAddOpen, setIsAddOpen] = useState(false)
+
+  const allChatUsers = [
     {
       image:
         "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
@@ -61,13 +66,7 @@ export default class ChatList extends Component {
       isOnline: true,
     }
   ];
-  constructor(props) {
-    super(props);
-    this.state = {
-      allChats: this.allChatUsers,
-    };
-  }
-  render() {
+
     return (
       <div className="main__chatlist">
         <div className="chatlist__heading">
@@ -80,12 +79,18 @@ export default class ChatList extends Component {
           <div className="search_wrap">
             <input type="text" placeholder="Search Here" required />
             <button className="search-btn">
-              <i className="fa fa-search"></i>
+            <FontAwesomeIcon icon="fa-search" />
             </button>
           </div>
+          <div className="add-leave">
+            <button className="add-btn" onClick={ () => {setIsAddOpen(true)} }><FontAwesomeIcon icon="fa-plus"/></button>
+          </div>
+          <Add isOpen={isAddOpen} onCancel={()=> setIsAddOpen(false)} title={"insert name"}>
+            <input type="text" />
+          </Add>
         </div>
         <div className="chatlist__items">
-          {this.state.allChats.map((item, index) => {
+          {allChatUsers.map((item, index) => {
             return (
               <ChatListItems
                 name={item.name}
@@ -100,5 +105,6 @@ export default class ChatList extends Component {
         </div>
       </div>
     );
-  }
 }
+
+

@@ -145,3 +145,16 @@
   border: none;
   outline: none;
 }
+
+.formInput{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  flex: 1;
+}
+.inputBox{
+
+  box-sizing: border-box;
+  width: 100%;
+}

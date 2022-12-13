@@ -10,10 +10,15 @@ import Timeline from './pages/Timeline/Timeline';
 import Tasks from './pages/Tasks/Tasks';
 import TaskDetail from './pages/TaskDetail/TaskDetail';
 import Settings from './pages/Settings/Settings';
-import Messages from './pages/Messages/Messages';
+import Messages from './pages/Message/message';
 import Files from './pages/Files/Files';
 import UserInfo from './pages/UserInfo/UserInfo';
 import NotFound from './pages/NotFound/NotFound';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faPaperPlane,faSmile,faLocation,faVoicemail,faSearch,faPlus,faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faPaperPlane,faSmile,faLocation,faVoicemail,faSearch,faPlus,faArrowLeft)
 
 function App() {
   const [sideBarVisibility, setSideBarVisibility] = useState(false);
