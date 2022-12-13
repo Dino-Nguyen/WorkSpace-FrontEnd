@@ -1,16 +1,19 @@
-import React, { Component } from "react";
-import "./userProfile.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { Component } from 'react';
+import './userProfile.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default class UserProfile extends Component {
   toggleInfo = (e) => {
-    e.target.parentNode.classList.toggle("open");
+    e.target.parentNode.classList.toggle('open');
   };
   render() {
     return (
       <div className="main__userprofile">
         <div className="profile__card user__profile__image">
           <div className="profile__image">
-            <img src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png" />
+            <img
+              src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"
+              alt="userProfile-img"
+            />
           </div>
           <h4>insert name</h4>
           <p>@insert name</p>
@@ -26,11 +29,10 @@ export default class UserProfile extends Component {
             <i className="fa fa-angle-down"></i>
           </div>
           <div className="card__content">No one here</div>
-          
         </div>
         <button className="leave-btn">
-              <FontAwesomeIcon icon="fa-arrow-left"/>
-            </button>
+          <FontAwesomeIcon icon="fa-arrow-left" />
+        </button>
       </div>
     );
   }

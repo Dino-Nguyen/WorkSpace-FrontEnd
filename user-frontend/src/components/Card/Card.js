@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import CardDetail from './CardDetail';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
-import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
+import AccessTimeFilledRoundedIcon from '@mui/icons-material/AccessTimeFilledRounded';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import classes from './Card.module.scss';
 import cardApi from '../../store/actions/api/card';
@@ -99,15 +99,13 @@ export default function Card({ card, listTitle, setLists, members, owner }) {
       <div className={classes['card--in-charge']}>
         {isCompleted ? (
           <button
-            className={classes['card--complete-btn']}
-            onClick={changeCardCompleteStatusHandler}>
+            onClick={changeCardCompleteStatusHandler}
+            className={classes['complete']}>
             <CheckCircleRoundedIcon />
           </button>
         ) : (
-          <button
-            className={classes['card--complete-btn']}
-            onClick={changeCardCompleteStatusHandler}>
-            <CheckCircleOutlineRoundedIcon />
+          <button onClick={changeCardCompleteStatusHandler}>
+            <AccessTimeFilledRoundedIcon />
           </button>
         )}
 

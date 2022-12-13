@@ -1,29 +1,24 @@
-import React from "react";
-import "./message.css";
-import ChatBody from "../../components/chatBody/ChatBody";
-import Sidebar from "../../components/SideBar/SideBar";
-import NavBar from "../../components/NavBar/NavBar";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import classes from './message.module.css';
+import ChatBody from '../../components/chatBody/ChatBody';
+import Sidebar from '../../components/SideBar/SideBar';
+import NavBar from '../../components/NavBar/NavBar';
 
 function Message({ sideBarVisibility, onSideBarShow }) {
-  const navigate = useNavigate();
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
   return (
-    <div className="main">
+    <React.Fragment>
       <NavBar
         sideBarVisibility={sideBarVisibility}
         onSideBarShow={onSideBarShow}
       />
-      <div className="main-chat">
-        <Sidebar
-          sideBarVisibility={sideBarVisibility}
-          onSideBarShow={onSideBarShow}
-        />
+      <Sidebar
+        sideBarVisibility={sideBarVisibility}
+        onSideBarShow={onSideBarShow}
+      />
+      <div className={classes['main']}>
         <ChatBody />
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 

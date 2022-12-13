@@ -116,7 +116,17 @@
         fill: #768396;
 
         &:hover {
-          fill: #5051f9;
+          fill: #00ff00;
+        }
+      }
+    }
+
+    .complete {
+      & svg {
+        fill: #00ff00;
+
+        &:hover {
+          fill: #768396;
         }
       }
     }
