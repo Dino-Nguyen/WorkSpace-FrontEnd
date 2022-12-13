@@ -2,8 +2,8 @@
   width: 20%;
   padding: 0 20px 0 40px;
   transition: all 0.3s ease-in-out;
-  overflow: hidden;
-  position: relative;
+  /* overflow: hidden;
+  position: relative; */
 }
 .profile__card {
   background-color: #fff;
@@ -90,3 +90,5 @@
 .profile__card.open .card__header i:before {
   content: "\f106";
 }
+
+
