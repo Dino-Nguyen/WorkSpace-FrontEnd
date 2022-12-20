@@ -21,3 +21,15 @@
     @content;
   }
 }
+
+@mixin media-height-medium {
+  @media screen and (max-height: 900px) {
+    @content;
+  }
+}
+
+@mixin media-height-small {
+  @media screen and (max-height: 768px) {
+    @content;
+  }
+}

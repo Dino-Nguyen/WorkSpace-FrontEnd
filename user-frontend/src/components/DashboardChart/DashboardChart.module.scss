@@ -1,8 +1,10 @@
+@import '../../setting.scss';
+
 .chart {
   background: #ffffff;
   border-radius: 16px;
   margin: 10px 30px 20px 40px;
-  height: 45%;
+  height: 42%;
 
   &--title {
     width: 100%;
@@ -18,5 +20,11 @@
     & h2:last-child {
       padding-right: 30px;
     }
+  }
+}
+
+@include media-height-medium {
+  .chart {
+    height: 30%;
   }
 }

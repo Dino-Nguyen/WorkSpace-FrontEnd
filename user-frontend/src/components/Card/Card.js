@@ -98,15 +98,21 @@ export default function Card({ card, listTitle, setLists, members, owner }) {
       )}
       <div className={classes['card--in-charge']}>
         {isCompleted ? (
-          <button
-            onClick={changeCardCompleteStatusHandler}
-            className={classes['complete']}>
-            <CheckCircleRoundedIcon />
-          </button>
+          <div>
+            <span>Completed</span>
+            <button
+              onClick={changeCardCompleteStatusHandler}
+              className={classes['complete']}>
+              <CheckCircleRoundedIcon />
+            </button>
+          </div>
         ) : (
-          <button onClick={changeCardCompleteStatusHandler}>
-            <AccessTimeFilledRoundedIcon />
-          </button>
+          <div>
+            <span>In progress</span>
+            <button onClick={changeCardCompleteStatusHandler}>
+              <AccessTimeFilledRoundedIcon />
+            </button>
+          </div>
         )}
 
         {card.inCharge && (
