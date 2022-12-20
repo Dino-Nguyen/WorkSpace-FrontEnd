@@ -150,7 +150,7 @@ export default function SignUp() {
               <br />
               Must begin with a letter or a number.
               <br />
-              Letters, numbers, underscores, hyphens are allowed.
+              Only letters & numbers are allowed.
             </p>
           </div>
           <div className={classes['form--group']}>

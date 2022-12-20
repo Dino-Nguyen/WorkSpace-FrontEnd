@@ -1,5 +1,7 @@
+@import '../../setting';
+
 .statistic {
-  height: 20%;
+  height: 18%;
   display: flex;
   justify-content: space-between;
   padding: 20px 30px 20px 40px;
@@ -50,5 +52,11 @@
         }
       }
     }
+  }
+}
+
+@include media-height-medium {
+  .statistic {
+    height: 22%;
   }
 }
