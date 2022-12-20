@@ -99,7 +99,7 @@ export default function Card({ card, listTitle, setLists, members, owner }) {
       <div className={classes['card--in-charge']}>
         {isCompleted ? (
           <div>
-            <span>Completed</span>
+            <span>Done</span>
             <button
               onClick={changeCardCompleteStatusHandler}
               className={classes['complete']}>
@@ -108,7 +108,7 @@ export default function Card({ card, listTitle, setLists, members, owner }) {
           </div>
         ) : (
           <div>
-            <span>In progress</span>
+            <span>Pending</span>
             <button onClick={changeCardCompleteStatusHandler}>
               <AccessTimeFilledRoundedIcon />
             </button>
