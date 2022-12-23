@@ -37,34 +37,24 @@ export default function Card({ card, listTitle, setLists, members, owner }) {
       );
       return newLists;
     });
-    cardApi
-      .deleteCard(currentCardId)
-      .then((data) => {
-        console.log(data.message);
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error('Something went wrong. Please try again!', {
-          theme: 'colored',
-        });
+    cardApi.deleteCard(currentCardId).catch((error) => {
+      console.log(error);
+      toast.error('Something went wrong. Please try again!', {
+        theme: 'colored',
       });
+    });
   };
 
   const changeCardCompleteStatusHandler = async () => {
     const currentCardId = card._id;
     setIsCompleted(!isCompleted);
     const payload = { isCompleted: !isCompleted };
-    cardApi
-      .updateCard(currentCardId, payload)
-      .then((data) => {
-        console.log(data.message);
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error('Something went wrong. Please try again!', {
-          theme: 'colored',
-        });
+    cardApi.updateCard(currentCardId, payload).catch((error) => {
+      console.log(error);
+      toast.error('Something went wrong. Please try again!', {
+        theme: 'colored',
       });
+    });
   };
 
   return (

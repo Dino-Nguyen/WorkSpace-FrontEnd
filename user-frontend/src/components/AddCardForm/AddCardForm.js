@@ -59,11 +59,6 @@ export default function AddCardForm({
       newLists[index] = newList;
       return newLists;
     });
-    setBoard((prev) => {
-      const newBoard = { ...prev };
-      newBoard.lists = newLists;
-      return newBoard;
-    });
     setNewCardTitle('');
     toggleAddCardForm();
 
@@ -90,7 +85,6 @@ export default function AddCardForm({
             lists: newLists,
           }));
         }
-        toast.success(data.message, { theme: 'colored' });
       })
       .catch((error) => {
         console.log(error);

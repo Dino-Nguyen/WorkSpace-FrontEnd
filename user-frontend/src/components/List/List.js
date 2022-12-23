@@ -14,7 +14,6 @@ import {
 } from '../../utils/content-editable';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
-import { toast } from 'react-toastify';
 
 export default function List({
   list,
@@ -39,14 +38,11 @@ export default function List({
   const listTitleBlurHandler = () => {
     if (listTitle === prevListTitle) return;
     const payload = { title: listTitle };
-    listApi.updateList(listId, payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
-    });
+    listApi.updateList(listId, payload);
   };
 
   const deleteListHandler = () => {
-    listApi.deleteList(listId).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
+    listApi.deleteList(listId).then(() => {
       let newLists = [];
       setLists((prev) => {
         newLists = [...prev].filter((list) => list._id !== listId);

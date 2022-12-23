@@ -101,9 +101,7 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
     });
     if (!compareArrays(prevListsOrder, newListsOrder)) {
       const payload = { listsOrder: newListsOrder };
-      boardApi.updateBoard(id, payload).then((data) => {
-        console.log(data.message);
-      });
+      boardApi.updateBoard(id, payload);
     }
   };
 
@@ -120,16 +118,11 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
           return;
         }
         const payload = { cardsOrder: currentList.cardsOrder };
-        listApi
-          .updateList(listId, payload)
-          .then((data) => {
-            console.log(data.message);
-          })
-          .catch(() => {
-            toast.error('Something went wrong. Please try again.', {
-              theme: 'colored',
-            });
+        listApi.updateList(listId, payload).catch(() => {
+          toast.error('Something went wrong. Please try again.', {
+            theme: 'colored',
           });
+        });
       } else {
         // Move card to other list
         if (dropResult.addedIndex === null) {
@@ -153,8 +146,7 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
             listToCardsOrder: changeList.current.listToCardsOrder,
             cardId: changeList.current.cardId,
           };
-          cardApi.moveCardToOtherList(payload).then((data) => {
-            console.log(data.message);
+          cardApi.moveCardToOtherList(payload).then(() => {
             changeList.current = {
               listFromId: null,
               listFromCardsOrder: [],
@@ -170,15 +162,12 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
 
   const updateBackgroundHandler = () => {
     const payload = { background };
-    boardApi.updateBoard(id, payload).then((data) => {
-      console.log(data.message);
-    });
+    boardApi.updateBoard(id, payload);
   };
 
   const deleteBoardHandler = () => {
     toggleMore();
     boardApi.deleteBoard(id).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
       navigate('/tasks');
     });
   };
@@ -187,15 +176,12 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
     toggleMore();
     setIsCompleted(!isCompleted);
     const payload = { isCompleted: !board.isCompleted };
-    boardApi.updateBoard(id, payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
-    });
+    boardApi.updateBoard(id, payload);
   };
 
   const leaveBoardHandler = () => {
     toggleMore();
-    boardApi.leaveBoard(id).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
+    boardApi.leaveBoard(id).then(() => {
       navigate('/tasks');
     });
   };
@@ -309,6 +295,7 @@ export default function TaskDetail({ sideBarVisibility, onSideBarShow }) {
             owner={board.owner[0]}
             setMembers={setMembers}
             onMembersFormShow={toggleMembersForm}
+            setBoard={setBoard}
           />,
           document.getElementById('modal-root'),
         )}

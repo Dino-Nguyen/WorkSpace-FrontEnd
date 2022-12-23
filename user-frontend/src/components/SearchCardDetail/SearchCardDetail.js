@@ -4,7 +4,6 @@ import {
   saveContentAfterPressEnter,
 } from '../../utils/content-editable';
 import cardApi from '../../store/actions/api/card';
-import { toast } from 'react-toastify';
 import classes from './SearchCardDetail.module.scss';
 import { Avatar } from '@mui/material';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
@@ -45,7 +44,6 @@ export default function SearchCardDetail({
     const currentListId = card.listId;
 
     cardApi.updateCard(currentCardId, payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
       const { inCharge } = data.updatedCard;
       setInCharge(inCharge);
 
@@ -71,8 +69,6 @@ export default function SearchCardDetail({
     const currentListId = card.listId;
 
     cardApi.updateCard(currentCardId, payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
-
       setLists((prev) => {
         const newLists = [...prev];
         const listIndex = newLists.findIndex(
@@ -107,7 +103,6 @@ export default function SearchCardDetail({
     cardApi
       .uploadCardImage(payload)
       .then((data) => {
-        toast.success(data.message, { theme: 'colored' });
         const { cover } = data.updatedCard;
         setCardCover(cover);
 
@@ -137,8 +132,6 @@ export default function SearchCardDetail({
     const currentListId = card.listId;
 
     cardApi.updateCard(currentCardId, payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
-
       setLists((prev) => {
         const newLists = [...prev];
         const listIndex = newLists.findIndex(
@@ -170,8 +163,6 @@ export default function SearchCardDetail({
     const currentListId = card.listId;
 
     cardApi.updateCard(currentCardId, payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
-
       setLists((prev) => {
         const newLists = [...prev];
         const listIndex = newLists.findIndex(
@@ -195,8 +186,6 @@ export default function SearchCardDetail({
     const currentListId = card.listId;
 
     cardApi.updateCard(currentCardId, payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
-
       setLists((prev) => {
         const newLists = [...prev];
         const listIndex = newLists.findIndex(
@@ -219,9 +208,7 @@ export default function SearchCardDetail({
     const currentCardId = card._id;
     const currentListId = card.listId;
 
-    cardApi.updateCard(card._id, payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
-
+    cardApi.updateCard(card._id, payload).then(() => {
       setLists((prev) => {
         const newLists = [...prev];
         const listIndex = newLists.findIndex(
