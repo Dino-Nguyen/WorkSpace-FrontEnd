@@ -27,8 +27,7 @@ export default function UserInfo({ sideBarVisibility, onSideBarShow }) {
 
   useEffect(() => {
     userApi.getUserInfo(id).then((data) => {
-      const { user, message } = data;
-      console.log(message);
+      const { user } = data;
       setUser(user);
     });
   }, [id]);

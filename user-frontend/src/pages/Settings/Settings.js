@@ -72,8 +72,7 @@ export default function Settings({ sideBarVisibility, onSideBarShow }) {
     userApi
       .uploadAvatar(payload)
       .then((data) => {
-        const { message, avatar } = data;
-        toast.success(message, { theme: 'colored' });
+        const { avatar } = data;
         setAvatar(avatar);
       })
       .finally(() => {
@@ -91,8 +90,7 @@ export default function Settings({ sideBarVisibility, onSideBarShow }) {
     userApi
       .uploadCover(payload)
       .then((data) => {
-        const { message, cover } = data;
-        toast.success(message, { theme: 'colored' });
+        const { cover } = data;
         setCover(cover);
       })
       .finally(() => {
@@ -116,11 +114,10 @@ export default function Settings({ sideBarVisibility, onSideBarShow }) {
       cover,
     };
     userApi.updateUser(payload).then((data) => {
-      const { updatedUser, message } = data;
+      const { updatedUser } = data;
       user = updatedUser;
       localStorage.setItem('user', JSON.stringify(user));
       dispatch(update(JSON.stringify(user)));
-      toast.success(message, { theme: 'colored' });
     });
   };
 

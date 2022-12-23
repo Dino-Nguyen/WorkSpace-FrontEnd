@@ -11,6 +11,7 @@ export default function BoardMembersForm({
   members,
   setMembers,
   onMembersFormShow,
+  setBoard,
 }) {
   const { id } = useParams();
   const [newMember, setNewMember] = useState('');
@@ -38,6 +39,12 @@ export default function BoardMembersForm({
         }
         const { members } = data;
         setMembers(members);
+        setBoard((prev) => {
+          const updatedBoard = prev;
+          updatedBoard.members = members;
+
+          return updatedBoard;
+        });
       })
       .finally(() => {
         setNewMember('');
@@ -58,6 +65,15 @@ export default function BoardMembersForm({
           (member) => member._id !== memberId,
         );
         return prevMembers;
+      });
+      setBoard((prev) => {
+        const updatedBoard = prev;
+        const updatedMembers = prev.members;
+        updatedBoard.members = updatedMembers.filter(
+          (member) => member._id !== memberId,
+        );
+
+        return updatedBoard;
       });
     });
   };

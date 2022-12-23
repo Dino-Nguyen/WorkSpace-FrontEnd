@@ -80,7 +80,6 @@ export default function AddListForm({ setLists, setBoard }) {
             lists: newLists,
             listsOrder: updatedBoard.listsOrder,
           }));
-          toast.success(data.message, { theme: 'colored' });
         }
       })
       .catch((error) => {

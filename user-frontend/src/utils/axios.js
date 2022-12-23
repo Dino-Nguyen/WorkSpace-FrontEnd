@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { signOut } from '../store/actions/auth';
 
-const baseURL = 'https://workspace-be.onrender.com/api';
+const baseURL = process.env.REACT_APP_API;
 axios.defaults.baseURL = baseURL;
 
 const setBearerToken = (bearerToken) => {

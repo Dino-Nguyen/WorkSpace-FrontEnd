@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import classes from './AddBoardForm.module.scss';
 import boardApi from '../../store/actions/api/board';
-import { toast } from 'react-toastify';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DoneIcon from '@mui/icons-material/Done';
 import clsx from 'clsx';
@@ -35,7 +34,6 @@ export default function CreateBoardForm({
       payload.background = background;
     }
     boardApi.createBoard(payload).then((data) => {
-      toast.success(data.message, { theme: 'colored' });
       navigate(`${location.pathname}/${data.newBoard._id}`);
     });
   };
